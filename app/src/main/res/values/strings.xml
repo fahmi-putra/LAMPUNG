@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LAMPUNG</string>
+    <string name="lampunges_name"> Nama Kabupaten</string>
+    <string name="detail">Detail</string>
+    <string name="my_name"> Aulia Fahmi Saputra</string>
+    <string name="my_email"> auliafahmisaputra@gmail.com</string>
+    <string name="about_profil">About</string>
+    <string name="share">Share</string>
+    <string name="dial_number">Hubungi</string>
+</resources>

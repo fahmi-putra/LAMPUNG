@@ -11,26 +11,22 @@ import com.bumptech.glide.request.RequestOptions
 
 class DetailActivity : AppCompatActivity() {
     companion object {
-        const val EXTRA_PHOTO = "extra_photo"
-        const val EXTRA_NAME = "extra_name"
-        const val EXTRA_DETAIL = "extra_detail"
+        const val EXTRA_DATA = "extra_data"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        val name = intent.getStringExtra(EXTRA_NAME)
-        val photo = intent.getIntExtra(EXTRA_PHOTO, 0)
-        val detail = intent.getStringExtra(EXTRA_DETAIL)
+        val data:Lampung = intent.getParcelableExtra<Lampung>(EXTRA_DATA) as Lampung
 
         val tvName: TextView = findViewById(R.id.tv_name)
         val tvDetail: TextView = findViewById(R.id.tv_detail)
         val tvPhoto: ImageView = findViewById(R.id.tv_foto)
 
-        tvName.text = name
-        tvDetail.text = detail
+        tvName.text = data.name
+        tvDetail.text = data.detail
         Glide.with(this)
-                .load(photo)
+                .load(data.photo)
                 .apply(RequestOptions())
                 .into(tvPhoto)
 
@@ -39,7 +35,7 @@ class DetailActivity : AppCompatActivity() {
         button.setOnClickListener {
             val intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "$name: $detail")
+                putExtra(Intent.EXTRA_TEXT, "${data.name}: ${data.detail}")
             }
             intent.type = "text/plain"
             startActivity(Intent.createChooser(intent, "Share To:"))

@@ -48,9 +48,7 @@ class MainActivity : AppCompatActivity() {
         listLampungAdapter.setOnItemClickCallback(object : ListLampungAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Lampung) {
                 val moveWithDataIntent = Intent(this@MainActivity, DetailActivity::class.java)
-                moveWithDataIntent.putExtra(DetailActivity.EXTRA_NAME, data.name)
-                moveWithDataIntent.putExtra(DetailActivity.EXTRA_PHOTO, data.photo)
-                moveWithDataIntent.putExtra(DetailActivity.EXTRA_DETAIL, data.detail)
+                moveWithDataIntent.putExtra(DetailActivity.EXTRA_DATA, data)
                 startActivity(moveWithDataIntent)
 
 
